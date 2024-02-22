@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Dynamic Health">
+    <meta name="description" content="">
+    <link rel="stylesheet" href={{ url_for ('static', filename = "nicepage.css") }} media="screen">
+    <link rel="stylesheet" href={{ url_for ('static', filename = "profile-1.css") }} media="screen">
+    <script class="u-script" type="text/javascript" src={{ url_for ('static', filename = "jquery-1.9.1.min.js") }} defer=""></script>
+    <script class="u-script" type="text/javascript" src={{ url_for ('static', filename = "nicepage.js") }} defer=""></script>
+    <meta name="generator" content="Nicepage 4.13.8, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "DynamicHealth"
+    "url": "/"
+}</script>
+    <meta name="theme-color" content="#4ea1f0">
+    <meta property="og:title" content="profile 1">
+    <meta property="og:type" content="website">
+
+{% endblock %}
+{% block title %}Profile- Dynamic Health{% endblock %}
+
+  {% block body %}
+  <form action="edit" method=POST>
+    <section class="u-align-center u-black u-clearfix u-section-1" id="sec-9957">
+      <div class="u-align-center u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">
+          <span style="font-size: 3.75rem;">PATIENT PROFILE </span>&nbsp;
+        </h2>
+        {% if editm %}<button class="u-btn u-button-style u-palette-1-dark-1 u-btn-1">SAVE</button>{% else %}<a href="/profile/edit" class="u-btn u-button-style u-palette-1-dark-1 u-btn-1">EDIT</a>{% endif %}
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-palette-1-dark-1 u-section-2" id="sec-ecf2">
+      <div class="u-clearfix u-sheet u-sheet-1"><span class="u-border-20 u-border-palette-1-base u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 51.997 51.997" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-d5de"></use></svg><svg class="u-svg-content" viewBox="0 0 51.997 51.997" x="0px" y="0px" id="svg-d5de" style="enable-background:new 0 0 51.997 51.997;"><path d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905
+	c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478
+	c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014
+	C52.216,18.553,51.97,16.611,51.911,16.242z"></path></svg></span>
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="50%">
+              <col width="50%">
+            </colgroup>
+            <thead class="u-align-center u-palette-1-dark-1 u-table-header u-table-valign-bottom u-table-header-1">
+              <tr style="height: 109px;">
+                <th class="u-border-5 u-border-white u-table-cell u-table-cell-1">Categories&nbsp;</th>
+                <th class="u-border-5 u-border-white u-table-cell u-table-cell-2">Patient Details&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody class="u-black u-table-body u-table-body-1">
+              <tr style="height: 75px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-3">Name&nbsp;</td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s1" class="inp" type="text" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s1'] }}></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-5">Age</td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s2" class="inp" type="number" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s2'] }}></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-7">Date of Birth</td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s3" class="inp" type="date" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s3'] }}></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-9">Contact No.<br>
+                </td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s4" class="inp" type="text" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s4'] }}></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-palette-1-dark-1 u-table-cell u-table-cell-11">Gender</td>
+                <td class="u-border-5 u-border-white u-table-cell"><select name="s5" class="inp" name="gender" {% if editm %}{% else %}disabled{% endif %} selected={{ datas['s5'] }}>
+  <option value="male">Male</option>
+  <option value="Female">Female</option>
+  <option value="nb">Non-binary</option>
+  <option value="ns" selected   >Not Say</option>
+</select></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-9">Blood Group<br>
+                </td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s6" class="inp" type="text" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s6'] }}></td>
+              </tr>
+              <tr style="height: 76px;">
+                <td class="u-border-5 u-border-white u-palette-1-dark-1 u-table-cell u-table-cell-13">Emergency Contacts</td>
+                <td class="u-border-5 u-border-white u-table-cell"><input name="s7" class="inp" type="text" {% if editm %}{% else %}disabled{% endif %} value={{ datas['s7'] }}></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-black u-clearfix u-section-3" id="sec-44b2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="100%">
+            </colgroup>
+            <thead class="u-table-header u-table-header-1">
+              <tr style="height: 149px;">
+                <th class="u-align-center u-border-3 u-border-white u-table-cell u-table-cell-1">PATIENT HISTORY</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body u-table-body-1">
+              <tr style="height: 536px;">
+                <td class="u-border-3 u-border-white u-table-cell">
+                  <textarea name="s8" class="inp" rows=16 maxlength=2000 {% if editm %}{% else %}disabled{% endif %}>{{ datas['s8'] }}</textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-palette-1-dark-1 u-section-4" id="carousel_c941">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="100%">
+            </colgroup>
+            <thead class="u-table-header u-table-header-1">
+              <tr style="height: 145px;">
+                <th class="u-align-center u-border-3 u-border-white u-table-cell u-table-cell-1">ALLERGIES</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body u-table-body-1">
+              <tr style="height: 571px;">
+                <td class="u-border-3 u-border-white u-table-cell">
+                  <textarea name="s9" class="inp" rows=16 maxlength=2000 back {% if editm %}{% else %}disabled{% endif %}>{{ datas['s9'] }}</textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-black u-clearfix u-section-5" id="carousel_11fa">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="100%">
+            </colgroup>
+            <thead class="u-table-header u-table-header-1">
+              <tr style="height: 134px;">
+                <th class="u-align-center u-border-3 u-border-white u-table-cell u-table-cell-1">CURRENT MEDICATION</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body u-table-body-1">
+              <tr style="height: 612px;">
+                <td class="u-border-3 u-border-white u-table-cell">
+                  <textarea name="s10" class="inp" rows=16 maxlength=2000 {% if editm %}{% else %}disabled{% endif %}>{{ datas['s10'] }}</textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </form>
+    <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
+background-color: #000000 !important
+}</style>
+{% endblock %}

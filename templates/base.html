@@ -1,0 +1,119 @@
+<!doctype html>
+<html style="font-size: 16px;" lang="en">
+<head>
+  {% block head %}
+  {% endblock %}
+  <title>{% block title %}UH{% endblock %}</title>
+  <style>
+  body{
+    background-color: rgba(0,0,0,0);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @font-face {
+    font-family: RifficFree-Bold;
+    src: url({{ url_for ('static', filename = "font/RifficFree-Bold.ttf") }});
+  }
+  @font-face {
+    font-family: Aller;
+    src: url({{ url_for ('static', filename = "font/Aller_Rg.ttf") }});
+  }
+  /* Style the header with a grey background and some padding */
+  .header {
+    overflow: hidden;
+    background-color: white;
+    padding: 20px 10px;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index:1;
+  }
+
+  /* Style the header links */
+  .header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  /* Change the background color on mouse-over */
+  .header a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Style the active/current link*/
+  .header a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+
+  /* Float the link section to the right */
+  .header-right {
+    float: right;
+  }
+
+  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: none;
+    }
+  }
+  #prof{
+    border: none;
+    background: url({{ url_for ('static', filename = "logo.png") }});
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    display: block;
+    margin: 3px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  {% block style %}
+  {% endblock %}
+  </style>
+</head>
+<body class="u-body u-xl-mode">
+  <div class="header">
+   <a href="#default" class="logo">Dynamic Health</a>
+   <div class="header-right">
+     <a class="{{ homeactc }}" href="home">Home</a>
+     <a class="{{ histactc }}" href="data">History</a>
+     <a onclick="document.getElementById('getFile').click()">Upload</a>
+     <a class="{{ profactc }}" href="profile">Profile</a>
+     <select id="prof" onchange="location = this.value;">
+  <option value="">{{ uname }}</option>
+  <!--<option value="profile">My Profile</option>-->
+  <option value="logout">LogOut</option>
+</select>
+ <form action = "/upload" method = "POST"
+                     enctype = "multipart/form-data">
+                     <input type = "file" name = "file" id="getFile" style="display:none;" onchange="form.submit()">
+                  </form>
+   </div>
+ </div>
+  {% block body %}
+  Test Text
+  {% endblock %}
+</body>
+</html>

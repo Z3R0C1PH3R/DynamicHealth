@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href={{ url_for ('static', filename = "nicepage.css") }} media="screen">
+    <link rel="stylesheet" href={{ url_for ('static', filename = "data.css") }} media="screen">
+    <script class="u-script" type="text/javascript" src={{ url_for ('static', filename = "jquery-1.9.1.min.js") }} defer=""></script>
+    <script class="u-script" type="text/javascript" src={{ url_for ('static', filename = "nicepage.js") }} defer=""></script>
+    <meta name="generator" content="Nicepage 4.13.8, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#4ea1f0">
+    <meta property="og:title" content="data">
+    <meta property="og:type" content="website">
+    {% endblock %}
+    {% block title %}History- Dynamic Health{% endblock %}
+
+      {% block body %}
+    <section class="u-align-center u-black u-clearfix u-section-1" id="sec-ecf2">
+      <div class="u-clearfix u-sheet u-sheet-1"><span class="u-border-20 u-border-palette-1-base u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 51.997 51.997" style=""><use xlink:href="#svg-d5de"></use></svg><svg class="u-svg-content" viewBox="0 0 51.997 51.997" x="0px" y="0px" id="svg-d5de" style="enable-background:new 0 0 51.997 51.997;"><path d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905
+	c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478
+	c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014
+	C52.216,18.553,51.97,16.611,51.911,16.242z"></path></svg></span>
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+            </colgroup>
+            <thead class="u-align-center u-palette-1-dark-1 u-table-header u-table-valign-bottom u-table-header-1">
+              <tr style="height: 33px;">
+                <th class="u-border-5 u-border-white u-table-cell u-table-cell-1"><span class="u-file-icon u-icon u-text-white u-icon-6"><img src={{ url_for ('static', filename = "images/2983684.png") }} alt=""></span>
+                  <br>DATES<br>
+                </th>
+                <th class="u-border-5 u-border-white u-table-cell u-table-cell-2"><span class="u-file-icon u-icon u-text-white u-icon-2"><img src={{ url_for ('static', filename = "images/3004451.png") }} alt=""></span>
+                  <br>Pulse<br>
+                </th>
+                <th class="u-border-5 u-border-white u-table-cell u-table-cell-3"><span class="u-file-icon u-icon u-text-white u-icon-3"><img src={{ url_for ('static', filename = "images/7832589.png") }} alt=""></span>
+                  <br>Temperature
+                </th>
+                <th class="u-border-5 u-border-white u-palette-1-dark-1 u-table-cell u-table-cell-4"><span class="u-file-icon u-icon u-text-white u-icon-4"><img src={{ url_for ('static', filename = "images/7404184.png") }} alt=""></span>&nbsp; <br>spO2
+                </th>
+                <th class="u-border-5 u-border-white u-palette-1-dark-1 u-table-cell u-table-cell-5"><span class="u-file-icon u-icon u-text-white u-icon-5"><img src={{ url_for ('static', filename = "images/6326686.png") }} alt=""></span>
+                  <br>Sugar Levels<br>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="u-black u-table-body u-table-body-1">
+            {%- for d,p,t,o,s in datas -%}
+              <tr style="height: 75px;">
+                <td class="u-border-5 u-border-white u-first-column u-palette-1-dark-1 u-table-cell u-table-cell-6">{{ d }}</td>
+                <td class="u-border-5 u-border-white u-table-cell">{{ p }}</td>
+                <td class="u-border-5 u-border-white u-table-cell">{{ t }}</td>
+                <td class="u-border-5 u-border-white u-table-cell">{{ o }}</td>
+                <td class="u-border-5 u-border-white u-table-cell">{{ s }}
+                  <br>
+                </td>
+              </tr>
+            {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-palette-1-dark-1 u-section-2" id="sec-44b2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <!--<a href="https://nicepage.best" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-3 u-text-body-alt-color u-text-hover-white u-btn-1">-->
+        <!--  <span style="font-size: 1.5rem;">Categories&nbsp;</span><span class="u-icon u-text-white u-icon-1"><svg class="u-svg-content" viewBox="0 0 490.677 490.677" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M489.272,37.339c-1.92-3.307-5.44-5.333-9.259-5.333H10.68c-3.819,0-7.339,2.027-9.259,5.333    c-1.899,3.307-1.899,7.36,0.021,10.667l234.667,405.333c1.899,3.307,5.419,5.333,9.237,5.333s7.339-2.027,9.237-5.333 L489.251,48.005C491.149,44.72,491.149,40.645,489.272,37.339z"></path></svg><img></span>-->
+        <!--</a>-->
+        <!--<a href="https://nicepage.com/k/shopping-cart-html-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2">+</a>-->
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="49.9%">
+              <col width="50.1%">
+            </colgroup>
+            <thead class="u-table-header u-table-header-1">
+              <tr style="height: 194px;">
+                <th class="u-align-center u-border-3 u-border-white u-table-cell u-table-cell-1"><span class="u-file-icon u-icon u-text-white u-icon-2"><img src={{ url_for ('static', filename = "images/2258843.png") }} alt=""></span>
+                  <br>File<br>
+                </th>
+                <th class="u-align-center u-border-3 u-border-white u-table-cell u-table-cell-2"><span class="u-file-icon u-icon u-text-white u-icon-3"><img src={{ url_for ('static', filename = "images/2983684.png") }} alt=""></span>
+                  <br>Date<span style="font-weight: 700;"></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body u-table-body-1">
+             {%- for fn,t in files -%}
+              <tr style="height: 101px;">
+                <td class="u-border-3 u-border-white u-table-cell">
+                  <a href="files?fname={{ fn }}">{{ fn }}</a>
+                  <br>
+                </td>
+                <td class="u-border-3 u-border-white u-table-cell">
+                  {{ t }}
+                  <br>
+                </td>
+              </tr>
+              {%- endfor -%}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
+background-color: #4ea1f0 !important
+}</style>
+
+    {% endblock %}
